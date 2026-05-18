@@ -15,12 +15,12 @@ const ContactSection = () => {
         </p>
         <div className="contact-actions">
           <a href="#" className="contact-btn contact-btn-primary">Join Ecosystem</a>
-          <a href="#" className="contact-btn contact-btn-secondary">Contact Khonsu</a>
+          <a href="mailto:maiadarshkumar@gmail.com" className="contact-btn contact-btn-secondary">Contact Khonsu</a>
         </div>
         <div className="contact-info">
           <span className="contact-info-item">
             <span className="contact-dot"></span>
-            contact @khonsu.in
+            maiadarshkumar@gmail.com
           </span>
           <span className="contact-info-item">
             <span className="contact-dot"></span>

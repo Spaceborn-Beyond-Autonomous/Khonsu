@@ -223,6 +223,7 @@
 @media (max-width: 768px) {
   .hero-section {
     width: calc(100% - 24px);
+    margin: 0 auto 40px;
     padding: 68px 16px 86px;
   }
 
@@ -238,6 +239,7 @@
     flex-direction: column;
     width: 100%;
     max-width: 300px;
+    margin: 0 auto;
   }
 
   .btn-primary, .btn-secondary {
