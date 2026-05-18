@@ -1,4 +1,6 @@
 import destnyLogo from '../../assets/destny.png';
+import spacebornLogo from '../../assets/spaceborn.png';
+import nulldragLogo from '../../assets/nulldrag.png';
 import './OverviewSection.css';
 
 const overviewData = [
@@ -53,7 +55,11 @@ const OverviewSection = () => {
                 </svg>
               </div>
               {item.title === 'DESTNY' ? (
-                <img src={destnyLogo} alt="DESTNY" className="overview-card-logo" style={{ width: '200px', maxWidth: '100%', height: 'auto', objectFit: 'contain', marginBottom: '20px' }} />
+                <img src={destnyLogo} alt="DESTNY" className="overview-card-logo" style={{ height: '112px', width: 'auto', objectFit: 'contain', marginBottom: '24px', alignSelf: 'center' }} />
+              ) : item.title === 'SPACEBORN' ? (
+                <img src={spacebornLogo} alt="SPACEBORN" className="overview-card-logo" style={{ height: '104px', width: 'auto', objectFit: 'contain', marginBottom: '24px', alignSelf: 'center' }} />
+              ) : item.title === 'NULLDRAG' ? (
+                <img src={nulldragLogo} alt="NULLDRAG" className="overview-card-logo" style={{ height: '128px', width: 'auto', objectFit: 'contain', marginBottom: '20px', alignSelf: 'center' }} />
               ) : (
                 <h3 className="overview-card-title">{item.title}</h3>
               )}
