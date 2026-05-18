@@ -1,5 +1,7 @@
 import './EcosystemSection.css';
 import destnyLogo from '../../assets/destny.png';
+import spacebornLogo from '../../assets/spaceborn.png';
+import nulldragLogo from '../../assets/nulldrag.png';
 
 const ecosystemData = [
   {
@@ -205,6 +207,26 @@ const EcosystemSection = () => {
                 <div className="eco-card-company">
                   {item.company === 'DESTNY' ? (
                     <img src={destnyLogo} alt="DESTNY" className="eco-company-logo" style={{ height: '20px', width: 'auto', objectFit: 'contain' }} />
+                  ) : item.company === 'SPACEBORN' || item.company === 'SWARM-SYNC' || item.company === 'PHANTOM-EYE' ? (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <img 
+                        src={spacebornLogo} 
+                        alt="SPACEBORN" 
+                        className="eco-company-logo" 
+                        style={{ height: '14px', width: 'auto', objectFit: 'contain', mixBlendMode: 'screen' }} 
+                      />
+                      <span className="eco-company-name">{item.company}</span>
+                    </div>
+                  ) : item.company === 'NULLDRAG' || item.company === 'SIGNAL' ? (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <img 
+                        src={nulldragLogo} 
+                        alt="NULLDRAG" 
+                        className="eco-company-logo" 
+                        style={{ height: '14px', width: 'auto', objectFit: 'contain', mixBlendMode: 'screen' }} 
+                      />
+                      <span className="eco-company-name">{item.company}</span>
+                    </div>
                   ) : (
                     <span className="eco-company-name">{item.company}</span>
                   )}

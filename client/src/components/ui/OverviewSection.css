@@ -16,30 +16,42 @@
 }
 
 .overview-header {
-  text-align: left;
-  margin-bottom: 48px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(240px, 0.65fr);
-  gap: 24px;
-  align-items: end;
+  text-align: center;
+  margin: 0 auto 48px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overview-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d9c4ff;
+  margin-bottom: 16px;
 }
 
 .overview-title {
   font-size: 36px;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-h);
-  line-height: 1.1;
-  margin: 0 0 12px;
+  line-height: 1.2;
+  margin: 0 0 16px;
   font-family: var(--heading);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 .overview-subtitle {
   font-size: 15px;
-  color: #e5e7eb;
+  color: #a0a0a0;
   margin: 0;
   font-weight: 400;
   line-height: 1.6;
+  max-width: 680px;
 }
 
 .overview-grid {
@@ -65,6 +77,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   cursor: pointer;
   text-align: left;
+  text-decoration: none;
 }
 
 .overview-card::before,
@@ -109,13 +122,80 @@
 .overview-card-top {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: auto;
+  margin-bottom: 8px;
   position: relative;
   z-index: 1;
 }
 
+.overview-logo-wrapper {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ultra-Premium Radial Aura Glow Behind Logo */
+.overview-logo-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.16) 0%, rgba(138, 43, 226, 0.04) 50%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.5;
+  transform: scale(0.85);
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+.overview-card:hover .overview-logo-wrapper::before {
+  opacity: 1;
+  transform: scale(1.15);
+  background: radial-gradient(circle, rgba(162, 89, 255, 0.25) 0%, rgba(138, 43, 226, 0.08) 50%, transparent 70%);
+}
+
+.overview-card-logo {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  mix-blend-mode: screen;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  filter: drop-shadow(0 0 6px rgba(157, 78, 221, 0.1));
+}
+
+.overview-card:hover .overview-card-logo {
+  transform: scale(1.05);
+  filter: 
+    drop-shadow(0 0 16px rgba(157, 78, 221, 0.65)) 
+    drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+}
+
+.spaceborn-logo {
+  height: 100px;
+  margin-left: -10px; /* Shift slightly left to correct the visual weight of the asymmetric caret shape */
+}
+
+.nulldrag-logo {
+  height: 115px;
+}
+
+.destny-logo {
+  height: 100px;
+}
+
 .overview-arrow-icon {
   color: #d9c4ff;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.4s ease;
+}
+
+.overview-card:hover .overview-arrow-icon {
+  color: #ffffff;
+  transform: translate(3px, -3px);
 }
 
 .overview-card-title {

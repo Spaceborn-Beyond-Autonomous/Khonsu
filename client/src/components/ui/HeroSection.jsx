@@ -12,26 +12,26 @@ const HeroSection = () => {
         
         <div className="hero-badge animate-fade-in-up">
           <span className="badge-dot"></span>
-          The Future Of Autonomous Aerospace.
+          THE FUTURE OF AUTONOMOUS AEROSPACE.
         </div>
 
         <h1 className="hero-title animate-fade-in-up delay-100">
-          Autonomous Systems<br />
-          Engineered Before<br />
-          Reality.
+          BUILD THE FUTURE OF<br />
+          AUTONOMOUS<br />
+          AEROSPACE SYSTEMS.
         </h1>
 
         <p className="hero-subtitle animate-fade-in-up delay-200">
-          Khonsu builds simulation-first aerospace systems, autonomous drone
-          platforms, and intelligent deployment infrastructure.
+          Khonsu is building the next generation of autonomous aerial, near-space,
+          and orbital platforms powered by software-defined autonomy.
         </p>
 
         <div className="hero-actions animate-fade-in-up delay-300">
           <button className="btn-primary" onClick={() => {
-            const el = document.querySelector('#architecture');
+            const el = document.querySelector('#ecosystem');
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }}>Explore Architecture</button>
-          <button className="btn-secondary" onClick={() => setShowModal(true)}>Share Resume</button>
+          }}>Explore Ecosystem</button>
+          <button className="btn-secondary" onClick={() => setShowModal(true)}>Share your resume</button>
         </div>
 
       </div>
