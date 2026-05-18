@@ -1,13 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const connectDB = require('./src/config/db');
-const { errorHandler } = require('./src/middleware/errorMiddleware');
-const healthRoutes = require('./src/routes/healthRoutes');
-
-dotenv.config();
-
-connectDB();
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import errorHandler from './src/middlewares/errorHandler.js';
+import notFound from './src/middlewares/notFound.js';
+import healthRoutes from './src/routes/healthRoutes.js';
+import fileuploadRoutes from './src/routes/fileupload.routes.js';
 
 const app = express();
 
@@ -17,6 +14,10 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/api/health', healthRoutes);
+app.use('/api/files', fileuploadRoutes);
+
+// 404 handler
+app.use(notFound);
 
 // Error handler (must be last)
 app.use(errorHandler);

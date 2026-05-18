@@ -1,0 +1,248 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Content */
+.modal-content {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(12, 12, 12, 0.95);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 36px;
+  position: relative;
+  animation: slideUp 0.25s ease;
+  text-align: left;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #707070;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #ffffff;
+}
+
+/* Header */
+.modal-header {
+  margin-bottom: 28px;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+  font-family: var(--heading);
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: #808080;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Drop Zone */
+.drop-zone {
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 40px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.drop-zone:hover {
+  border-color: rgba(157, 78, 221, 0.4);
+  background: rgba(157, 78, 221, 0.05);
+}
+
+.drop-zone-active {
+  border-color: rgba(157, 78, 221, 0.6);
+  background: rgba(157, 78, 221, 0.08);
+}
+
+.drop-zone-has-file {
+  border-style: solid;
+  border-color: rgba(157, 78, 221, 0.3);
+  background: rgba(157, 78, 221, 0.05);
+  padding: 24px;
+}
+
+.drop-zone-input {
+  display: none;
+}
+
+.drop-zone-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #606060;
+}
+
+.drop-text {
+  font-size: 14px;
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.drop-hint {
+  font-size: 12px;
+  color: #606060;
+}
+
+/* File Info */
+.drop-zone-file {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #d9c4ff;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.file-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e0e0;
+  word-break: break-all;
+}
+
+.file-size {
+  font-size: 12px;
+  color: #808080;
+}
+
+/* Error */
+.modal-error {
+  font-size: 13px;
+  color: #ff6b6b;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: rgba(255, 107, 107, 0.08);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  border-radius: 8px;
+}
+
+/* Upload Button */
+.modal-upload-btn {
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--sans);
+}
+
+.modal-upload-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #9d4edd, #c77dff);
+  box-shadow: 0 8px 24px rgba(123, 44, 191, 0.4);
+  transform: translateY(-1px);
+}
+
+.modal-upload-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.upload-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success State */
+.modal-success {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.success-icon {
+  color: #4ade80;
+  margin-bottom: 20px;
+}
+
+.success-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+  font-family: var(--heading);
+}
+
+.success-desc {
+  font-size: 14px;
+  color: #909090;
+  margin: 0 0 28px;
+  line-height: 1.6;
+}
+
+.success-desc strong {
+  color: #d9c4ff;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .modal-content {
+    padding: 28px 20px;
+  }
+}
