@@ -23,8 +23,8 @@ app.use(cors({
     },
     methods: ["GET", "POST"],
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: false, limit: "10kb" }));
 
 // Apply a general baseline rate limit to all API routes
 app.use('/api', generalApiLimiter);
