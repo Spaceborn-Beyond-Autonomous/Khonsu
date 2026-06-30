@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import errorHandler from './src/middlewares/errorHandler.js';
 import notFound from './src/middlewares/notFound.js';
 import healthRoutes from './src/routes/healthRoutes.js';
@@ -8,6 +9,8 @@ import fileuploadRoutes from './src/routes/fileupload.routes.js';
 import { generalApiLimiter } from './src/middlewares/rateLimiter.js';
 
 const app = express();
+
+app.use(helmet());
 
 const allowedOrigin = (process.env.CLIENT_URL || "").replace(/\/$/, "");
 
