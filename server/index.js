@@ -8,7 +8,17 @@ import fileuploadRoutes from './src/routes/fileupload.routes.js';
 
 const app = express();
 
-app.use(cors());
+const allowedOrigin = (process.env.CLIENT_URL || "").replace(/\/$/, "");
+
+app.use(cors({
+    origin: (origin, callback) => {
+        // Allow non-browser tools (curl, server-to-server, health checks) with no Origin header
+        if (!origin) return callback(null, true);
+        if (origin === allowedOrigin) return callback(null, true);
+        return callback(new Error("Not allowed by CORS"));
+    },
+    methods: ["GET", "POST"],
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
