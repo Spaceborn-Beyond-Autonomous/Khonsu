@@ -5,6 +5,7 @@ import errorHandler from './src/middlewares/errorHandler.js';
 import notFound from './src/middlewares/notFound.js';
 import healthRoutes from './src/routes/healthRoutes.js';
 import fileuploadRoutes from './src/routes/fileupload.routes.js';
+import { generalApiLimiter } from './src/middlewares/rateLimiter.js';
 
 const app = express();
 
@@ -21,6 +22,9 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Apply a general baseline rate limit to all API routes
+app.use('/api', generalApiLimiter);
 
 // Routes
 app.use('/api/health', healthRoutes);
