@@ -36,31 +36,16 @@ const uploadToGDrive = async (fileBuffer, fileName, mimeType) => {
     const response = await drive.files.create({
         resource: fileMetadata,
         media,
-        fields: "id, name, mimeType, webViewLink, webContentLink, size",
+        fields: "id, name, mimeType, size",
     });
 
-    // Make the file readable by anyone with the link
-    await drive.permissions.create({
-        fileId: response.data.id,
-        requestBody: {
-            role: "reader",
-            type: "anyone",
-        },
-    });
-
-    // Re-fetch to get the updated webViewLink
-    const file = await drive.files.get({
-        fileId: response.data.id,
-        fields: "id, name, mimeType, webViewLink, webContentLink, size",
-    });
-
+    // Files are intentionally kept private — only accessible to team members
+    // with access to the Drive folder. No public link is generated or exposed.
     return {
-        fileId: file.data.id,
-        fileName: file.data.name,
-        mimeType: file.data.mimeType,
-        webViewLink: file.data.webViewLink,
-        webContentLink: file.data.webContentLink,
-        size: file.data.size,
+        fileId: response.data.id,
+        fileName: response.data.name,
+        mimeType: response.data.mimeType,
+        size: response.data.size,
     };
 };
 
